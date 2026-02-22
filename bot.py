@@ -1,6 +1,8 @@
 import os
 import sqlite3
 import matplotlib.pyplot as plt
+
+from keyboards import main_menu
 from datetime import datetime
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
