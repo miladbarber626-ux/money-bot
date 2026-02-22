@@ -3,6 +3,22 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 from keyboards import main_menu
+from telegram import ReplyKeyboardMarkup
+
+# کیبورد اصلی
+main_menu = ReplyKeyboardMarkup([
+    ['ثبت تراکنش', 'نمایش تراکنش‌ها'],
+    ['نمودار', 'تنظیم هدف'],
+], resize_keyboard=True)
+
+async def start(update: Update, context: CallbackContext):
+    user_id = update.message.from_user.id
+
+    # ارسال پیام خوش آمدگویی با دکمه‌ها
+    await update.message.reply_text(
+        "سلام! بگو چه کمکی از دستم بر میاد؟",
+        reply_markup=main_menu  # این همون دکمه‌ها است که اضافه کردیم
+    )
 from datetime import datetime
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters
